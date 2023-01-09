@@ -1,8 +1,14 @@
-var items =document.getElementsByClassName('list-group-item');
-console.log(items);
-console.log(items[1]);
-items[1].textContent='Hello';
-items[2].style.backgroundColor='green'
-for (var i=0;i < items.length;i++){
-    items[i].style.backgroundColor= '#f4f4f4';
-}
+
+var itemList = document.getElementById('items');
+// Delete Event
+itemList.addEventListener('click', removeItem)
+// remove Item
+function removeItem(e){
+    if(e.target.classList.contains('delete')){
+      if(confirm('Are You Sure?')){
+        var li = e.target.parentElement;
+        itemList.removeChild(li);
+      }
+    }
+  }
+
